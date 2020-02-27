@@ -19,8 +19,6 @@ import frc.robot.subsystems.AngleAdjust;
 //import frc.robot.subsystems.ColorwheelPID;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.FlywheelPID;
-import frc.robot.subsystems.LEDLights;
-import edu.wpi.first.wpilibj2.command.ConditionalCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj.XboxController.Button;
 
@@ -39,7 +37,6 @@ public class RobotContainer {
   private final Drivetrain m_driveTrain = new Drivetrain();
   private final FlywheelPID m_flywheel = new FlywheelPID();
   //private final ColorwheelPID m_colorFlywheelPID = new ColorwheelPID();
-  private final LEDLights m_LEDLights = new LEDLights();
   private final AngleAdjust m_angleAdjust = new AngleAdjust();
 
   // The driver's controller
@@ -109,7 +106,7 @@ public class RobotContainer {
     // Spin up the shooter when the 'A' button is pressed
     new JoystickButton(m_driverController, Button.kX.value)
         .whenPressed(() -> m_flywheel.reverseFlywheel(0.75), m_flywheel)
-        .whenReleased(() -> m_flywheel.stop())
+        .whenReleased(() -> m_flywheel.stop());
         //.whenPressed(new InstantCommand(m_flywheel::enable, m_flywheel));
         //if(m_flywheel.atSetpoint()){
           //m_driverController.setRumble(RumbleType.kRightRumble, 1);
@@ -121,8 +118,7 @@ public class RobotContainer {
     //    .whenPressed(new InstantCommand(m_flywheel::disable, m_flywheel));
 
     // Drive at half speed when the right bumper is held
-    new JoystickButton(m_driverController, Button.kBumperRight.value).whenPressed(() -> m_driveTrain.setMaxOutput(0.5))
-        .whenReleased(() -> m_driveTrain.setMaxOutput(1));
+   
   }
 
   /**

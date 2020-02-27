@@ -21,7 +21,7 @@ public class AngleAdjust extends PIDSubsystem {
    */
 
   //Instantiate and create motor objects here
-  //private static WPI_VictorSPX angleMotor = new WPI_VictorSPX(FlywheelConstants.kangleMotor);
+  private static WPI_VictorSPX angleMotor = new WPI_VictorSPX(FlywheelConstants.kangleMotor);
   
 
   //Instantiate and create sensor objects here
